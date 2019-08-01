@@ -3,7 +3,7 @@
  * 高级查询按钮调用 superQuery方法  高级查询组件ref定义为superQueryModal
  * data中url定义 list为查询列表  delete为删除单条记录  deleteBatch为批量删除
  */
-import { filterObj } from '@/utils/util';
+import { filterObj,filterUrl,toTree } from '@/utils/util';
 import { deleteAction, getAction,downFile } from '@/api/manage'
 import Vue from 'vue'
 import { ACCESS_TOKEN } from "@/store/mutation-types"
@@ -69,8 +69,14 @@ export const JeecgListMixin = {
       this.loading = true;
       getAction(this.url.list, params).then((res) => {
         if (res.success) {
-          this.dataSource = (res.result.records)?res.result.records:res.result;
-          this.ipagination.total = res.result.total;
+          //构造树型数据结构
+           var view = filterUrl(this.url.list,'view');
+           if(view == 'tree'){
+              this.dataSource = toTree(res.result);
+           }else{
+              this.dataSource = res.result.records;
+              this.ipagination.total = res.result.total;
+           }
         }
         this.loading = false;
       })

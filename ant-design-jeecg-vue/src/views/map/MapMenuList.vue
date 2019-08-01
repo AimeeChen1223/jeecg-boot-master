@@ -2,7 +2,7 @@
   <a-card :bordered="false">
 
     <!-- 查询区域 -->
-    <div class="table-page-search-wrapper">
+   <!--  <div class="table-page-search-wrapper">
       <a-form layout="inline">
         <a-row :gutter="24">
 
@@ -46,7 +46,7 @@
 
         </a-row>
       </a-form>
-    </div>
+    </div> -->
 
     <!-- 操作按钮区域 -->
     <div class="table-operator">
@@ -123,27 +123,27 @@
         // 表头
         columns: [
           {
-            title: '#',
-            dataIndex: '',
+            title: '节点名称',
+            dataIndex: 'name',
             key:'rowIndex',
-            width:60,
+            width:200,
             align:"center",
-            customRender:function (t,r,index) {
-              return parseInt(index)+1;
-            }
+            // customRender:function (t,r,index) {
+            //   return parseInt(index)+1;
+            // }
            },
+		   // {
+     //        title: '父节点ID',
+     //        align:"center",
+     //        dataIndex: 'parentId'
+     //       },
+		   // {
+     //        title: '节点名称',
+     //        align:"center",
+     //        dataIndex: 'name'
+     //       },
 		   {
-            title: '父节点ID',
-            align:"center",
-            dataIndex: 'parentId'
-           },
-		   {
-            title: '节点名称',
-            align:"center",
-            dataIndex: 'name'
-           },
-		   {
-            title: '节点名称',
+            title: '图标',
             align:"center",
             dataIndex: 'icon'
            },
@@ -165,7 +165,7 @@
           }
         ],
 		url: {
-          list: "/mapmenu/mapMenu/list",
+          list: "/mapmenu/mapMenu/list?view=tree",
           delete: "/mapmenu/mapMenu/delete",
           deleteBatch: "/mapmenu/mapMenu/deleteBatch",
           exportXlsUrl: "mapmenu/mapMenu/exportXls",
