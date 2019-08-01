@@ -65,7 +65,6 @@ public class JeecgDemoController extends JeecgController<JeecgDemo,IJeecgDemoSer
      */
     @PostMapping(value = "/hello")
     public Result<String> hello() {
-    	JSONObject obj = new JSONObject();
         Result<String> result = new Result<String>();
         result.setResult("Hello World!");
         result.setSuccess(true);

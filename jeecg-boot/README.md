@@ -136,7 +136,7 @@ QueryWrapper<?> queryWrapper = QueryGenerator.initQueryWrapper(?, req.getParamet
 		//第一步：设置主表配置
 		MainTableVo mainTable = new MainTableVo();
 		mainTable.setTableName("jeecg_order_main");//表名
-		mainTable.setEntityName("TestOrderMain");	 //实体名
+		mainTable.setEntityName("MapConfigMain");	 //实体名
 		mainTable.setEntityPackage("test2");	 //包名
 		mainTable.setFtlDescription("订单");	 //描述
 		
